@@ -26,20 +26,17 @@ inquirer
             message: 'Enter either the name or the hex code for the shape color'
         }
     ])
+    .then((input) => {
+        const userTextInput = '';
 
-    fs.writeFile('logo.svg', (err) => 
-    err ? console.log(err) : console.log('SVG logo generated!'))
+            if (input.text.length > 0 && input.text.length < 4) {
+                userTextInput = input.text
+            } else {
+                console.log('Invalid input, please enter 1-3 characters')
+                return
+            }
 
-
-
-
-    userTextInput = '';
-
-    const confirmUserInput = async (input) => {
-        if (input.text.length === 0 || input.text.length < 4) {
-            userTextInput = input.text
-        } else {
-            console.log('Invalid input, please enter 1-3 characters')
-            return
-        }
-    }
+       fs.writeFile('logo.svg', (err) => 
+        err ? console.log(err) : console.log('SVG logo generated!')) 
+    })
+    
