@@ -1,6 +1,6 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
-const {Circle, Square, Triangle} = require('./lib/shapes') 
+
 
 inquirer
     .prompt([
@@ -35,6 +35,21 @@ inquirer
                 console.log('Invalid input, please enter 1-3 characters')
                 return
             }
+
+        let shape;
+
+        if (input.shape === 'Circle') {
+            shape = new Circle
+        } 
+        else if (input.shape === 'Square') {
+            shape = new Square
+        }
+        else if (input.shape === 'Triangle') {
+            shape = new Triangle
+        }
+
+        
+
 
        fs.writeFile('logo.svg', (err) => 
         err ? console.log(err) : console.log('SVG logo generated!')) 
