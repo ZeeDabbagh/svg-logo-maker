@@ -9,6 +9,15 @@ inquirer.prompt ([
     type: 'input',
     name: 'text',
     message: 'Enter the text to appear on your logo, up to 3 characters',
+    validate: (text) => {
+      if (text.length > 0 && text.length < 4) {
+          return true
+      } else {
+          return 'Invalid input, please enter 1-3 characters'
+          
+      }
+
+    }
   },
   {
     type: 'input',
