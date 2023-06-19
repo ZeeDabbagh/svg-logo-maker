@@ -39,14 +39,6 @@ inquirer.prompt ([
 ])
 
 .then((input) => {
-     let userTextInput
-
-        if (input.text.length > 0 && input.text.length < 4) {
-            userTextInput = input.text
-        } else {
-            console.log('Invalid input, please enter 1-3 characters')
-            return
-        }
 
     let shape;
 
